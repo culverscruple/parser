@@ -79,6 +79,9 @@ class Dataset(torch.utils.data.Dataset):
         self.kwargs = kwargs
 
         if cache:
+            print(f"Data is a string: {isinstance(data, str)}")
+            print(f"os.path.exists(data): {os.path.exists(data)}")
+            print(f"data = {data})
             if not isinstance(data, str) or not os.path.exists(data):
                 raise FileNotFoundError("Please specify a valid file path for caching!")
             if self.bin is None:
